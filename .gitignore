@@ -4,6 +4,7 @@ odoo_pg_pass
 # odoo 18 avoid committing to your repo
 .github/
 .tx/
+addons/
 debian/
 doc/
 odoo/
