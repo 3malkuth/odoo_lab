@@ -1,9 +1,26 @@
 #local dev env
 odoo_pg_pass
 
+# odoo 18 avoid committing to your repo
+.github/
+.tx/
+debian/
+doc/
+odoo/
+setup/
+CONTRIBUTING.md
+COPYRIGHT
+MANIFEST.in
+odoo-bin
+requirements.txt
+SECURITY.md
+setup.cfg
+setup.py
+
 # jetbrains
 *.iml
 .idea/
+out/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

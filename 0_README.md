@@ -3,10 +3,16 @@
 ## Setup development environment
 
 ### Setup of odoo 18 on ubuntu 22.04
+* Clone the odoo repo
+```
+git clone https://www.github.com/odoo/odoo --depth 1 --branch 18.0 --single-branch odoo18
+```
+* You should be able to simply copy the contents of the odoo repo into this repo's directory
 
 * Install your favourite IDE
 * Make sure you have Python 3.12 or higher installed
 * Install pipenv
+* Install node with nvm
 * Install docker & docker-compose
 * Install the following packages
 
