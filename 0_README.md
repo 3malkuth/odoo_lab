@@ -9,12 +9,15 @@
 * Install pipenv
 * Install docker & docker-compose
 * Install the following packages
+
 ```
 wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.jammy_amd64.deb
 sudo dpkg -i wkhtmltox_0.12.6.1-3.jammy_amd64.deb
 sudo apt install -y xfonts-75dpi
-sudo apt install -y libpq-dev python3-dev build-essential
-sudo apt install -y libldap2-dev libsasl2-dev libssl-dev
+# sudo apt install -y libpq-dev python3-dev build-essential
+# sudo apt install -y libldap2-dev libsasl2-dev libssl-dev
+sudo apt-get install python3.12
+sudo apt-get install python3-dev build-essential libjpeg-dev libpq-dev libjpeg8-dev libxml2-dev libssl-dev libffi-dev libmysqlclient-dev libxslt1-dev zlib1g-dev libsasl2-dev libldap2-dev liblcms2-dev
 ```
 
 * Setup pipenv and use the virtual environment
