@@ -1,6 +1,6 @@
 # odoo_lab
 
-## task / test / feature backlog
+## TODO's - task / test / feature backlog
 
 * setup odoo docker containers to keep the data after being stopped
 * setup the robot framework to test logging into odoo
@@ -10,3 +10,9 @@
 * create branches for the different versions of odoo going into the future
 * integrate n8n
 * integrate hotwire.dev?
+
+## DONE - tasks / tests / features
+
+## ARCHIVED - tasks / tests / features
+
+
