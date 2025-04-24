@@ -1,6 +1,6 @@
 # odoo_lab
 
-## test backlog
+## task / test / feature backlog
 
 * setup odoo docker containers to keep the data after being stopped
 * setup the robot framework to test logging into odoo
