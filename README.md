@@ -1,5 +1,9 @@
 # odoo_lab
 
+## Quick Note
+* https://demo.odoo.com
+  * This quickly spins up a demo instance of odoo
+
 ## Setup development environment
 
 ### Setup of odoo 18 on ubuntu 22.04
