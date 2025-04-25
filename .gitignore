@@ -2,6 +2,7 @@
 odoo_pg_pass
 
 # odoo 18 avoid committing to your repo
+config/
 .github/
 .tx/
 addons/
@@ -17,6 +18,7 @@ requirements.txt
 SECURITY.md
 setup.cfg
 setup.py
+README.md
 
 # jetbrains
 *.iml
@@ -204,7 +206,7 @@ _build/
 # dotfiles
 .*
 !.gitignore
-!.github
+#!.github
 !.mailmap
 # compiled python files
 *.py[co]
