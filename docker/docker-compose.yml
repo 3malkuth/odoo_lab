@@ -3,24 +3,27 @@ services:
   web:
     image: odoo:18.0
     depends_on:
-      - mydb
+      - db
     ports:
       - "8069:8069"
     environment:
-      - HOST=mydb
-      - USER=odoo18
-      - PASSWORD_FILE=/run/secrets/postgresql_password
-    secrets:
-      - postgresql_password
-  mydb:
+      - HOST=${ODOO_DB_HOST}
+      - USER=${ODOO_DB_USER}
+      - PASSWORD=${ODOO_DB_PASSWORD}
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ../config:/etc/odoo
+      - ../extra_addons:/mnt/extra_addons
+
+  db:
     image: postgres:17.4
     environment:
       - POSTGRES_DB=postgres
-      - POSTGRES_PASSWORD_FILE=/run/secrets/postgresql_password
-      - POSTGRES_USER=odoo18
-    secrets:
-      - postgresql_password
+      - POSTGRES_PASSWORD=${ODOO_DB_PASSWORD}
+      - POSTGRES_USER=${ODOO_DB_USER}
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
 
-secrets:
-  postgresql_password:
-    file: odoo_pg_pass
+volumes:
+  odoo-web-data:
+  odoo-db-data:

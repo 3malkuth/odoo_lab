@@ -1,0 +1,27 @@
+version: '3.1'
+services:
+  web:
+    image: odoo:18.0
+    depends_on:
+      - mydb
+    ports:
+      - "8069:8069"
+    environment:
+      - HOST=mydb
+      - USER=odoo18
+      - PASSWORD_FILE=/run/secrets/postgresql_password
+    secrets:
+      - postgresql_password
+  mydb:
+    image: postgres:17.4
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD_FILE=/run/secrets/postgresql_password
+      - POSTGRES_USER=odoo18
+    secrets:
+      - postgresql_password
+
+secrets:
+  postgresql_password:
+    file: odoo_pg_pass
+    # the odoo_pg_pass is simply a file in the same directory with the password in it and nothing else
