@@ -1,37 +1,64 @@
-# Odoo
+# odoo_lab
 
-[![Build Status](https://runbot.odoo.com/runbot/badge/flat/1/master.svg)](https://runbot.odoo.com/runbot)
-[![Tech Doc](https://img.shields.io/badge/master-docs-875A7B.svg?style=flat&colorA=8F8F8F)](https://www.odoo.com/documentation/master)
-[![Help](https://img.shields.io/badge/master-help-875A7B.svg?style=flat&colorA=8F8F8F)](https://www.odoo.com/forum/help-1)
-[![Nightly Builds](https://img.shields.io/badge/master-nightly-875A7B.svg?style=flat&colorA=8F8F8F)](https://nightly.odoo.com/)
+## Setup development environment
 
-Odoo is a suite of web based open source business apps.
+### Setup of odoo 18 on ubuntu 22.04
+* Clone the odoo repo
+```
+git clone https://www.github.com/odoo/odoo --depth 1 --branch 18.0 --single-branch odoo18
+```
+* You should be able to simply copy the contents of the odoo repo into this repo's directory
 
-The main Odoo Apps include an [Open Source CRM](https://www.odoo.com/page/crm),
-[Website Builder](https://www.odoo.com/app/website),
-[eCommerce](https://www.odoo.com/app/ecommerce),
-[Warehouse Management](https://www.odoo.com/app/inventory),
-[Project Management](https://www.odoo.com/app/project),
-[Billing &amp; Accounting](https://www.odoo.com/app/accounting),
-[Point of Sale](https://www.odoo.com/app/point-of-sale-shop),
-[Human Resources](https://www.odoo.com/app/employees),
-[Marketing](https://www.odoo.com/app/social-marketing),
-[Manufacturing](https://www.odoo.com/app/manufacturing),
-[...](https://www.odoo.com/)
+* Install your favourite IDE
+* Make sure you have Python 3.12 or higher installed
+* Install pipenv
+* Install node with nvm
+* Install docker & docker-compose
+* Install the following packages
 
-Odoo Apps can be used as stand-alone applications, but they also integrate seamlessly so you get
-a full-featured [Open Source ERP](https://www.odoo.com) when you install several Apps.
+```
+wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.jammy_amd64.deb
+sudo dpkg -i wkhtmltox_0.12.6.1-3.jammy_amd64.deb
+sudo apt install -y xfonts-75dpi
+# sudo apt install -y libpq-dev python3-dev build-essential
+# sudo apt install -y libldap2-dev libsasl2-dev libssl-dev
+sudo apt-get install python3.12
+sudo apt-get install python3-dev build-essential libjpeg-dev libpq-dev libjpeg8-dev libxml2-dev libssl-dev libffi-dev libmysqlclient-dev libxslt1-dev zlib1g-dev libsasl2-dev libldap2-dev liblcms2-dev
+```
 
-## Getting started with Odoo
+* Setup pipenv and use the virtual environment
+```
+pipenv install
+pipenv shell
+```
 
-For a standard installation please follow the [Setup instructions](https://www.odoo.com/documentation/master/administration/install/install.html)
-from the documentation.
+* I then setup a pipenv environment as an SDK
 
-To learn the software, we recommend the [Odoo eLearning](https://www.odoo.com/slides),
-or [Scale-up, the business game](https://www.odoo.com/page/scale-up-business-game).
-Developers can start with [the developer tutorials](https://www.odoo.com/documentation/master/developer/howtos.html).
+* Check out the rest in the reference below...
 
-## Security
+* **References**
+  * [Cybrosys Tutorial](https://www.cybrosys.com/blog/how-to-setup-odoo-18-development-environment-using-pycharm-in-ubuntu-22-04)
 
-If you believe you have found a security issue, check our [Responsible Disclosure page](https://www.odoo.com/security-report)
-for details and get in touch with us via email.
+## Run tests
+
+## Run odoo locally
+
+## CI/CD
+
+## TODO's - task / test / feature backlog
+* How do odoo portal users work?
+  * I need to know how to setup an ecommerce site that doesn't treat customers as real users
+* setup odoo docker containers to keep the data after being stopped
+* setup the robot framework to test logging into odoo
+* setup an odoo development environment
+  * make sure the development environment uses pipenv
+* setup unit testing with pytest or something similar
+* create branches for the different versions of odoo going into the future
+* integrate n8n
+* integrate hotwire.dev?
+
+## DONE - tasks / tests / features
+
+## ARCHIVED - tasks / tests / features
+
+
