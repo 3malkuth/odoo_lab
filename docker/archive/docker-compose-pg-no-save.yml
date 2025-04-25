@@ -14,3 +14,4 @@ services:
 secrets:
   postgresql_password:
     file: odoo_pg_pass
+    # the odoo_pg_pass is simply a file in the same directory with the password in it and nothing else
