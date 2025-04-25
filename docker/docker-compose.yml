@@ -1,3 +1,10 @@
+# NOTE This file expects a .env file in the same directory with the following variables:
+#  ODOO_ADMIN_PASSWD =
+#  ODOO_DB_HOST =
+#  ODOO_DB_PORT =
+#  ODOO_DB_USER =
+#  ODOO_DB_PASSWORD =
+
 version: '3.1'
 services:
   web:
