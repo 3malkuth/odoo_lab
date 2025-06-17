@@ -1,0 +1,51 @@
+name: Docker Compose Test Workflow
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-24.04
+
+    env:
+      ODOO_ADMIN_PASSWD: ${{ secrets.ODOO_ADMIN_PASSWD }}
+      ODOO_DB_HOST: ${{ secrets.ODOO_DB_HOST }}
+      ODOO_DB_PORT: ${{ secrets.ODOO_DB_PORT }}
+      ODOO_DB_USER: ${{ secrets.ODOO_DB_USER }}
+      ODOO_DB_PASSWORD: ${{ secrets.ODOO_DB_PASSWORD }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install pipenv
+        run: pip install pipenv
+
+      - name: Set up Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
+
+      - name: Start Docker containers
+        run: docker-compose -f docker/docker-compose.yml up -d
+
+      - name: Wait for services to be ready (optional)
+        run: sleep 15
+
+      - name: Install dependencies
+        run: pipenv install --dev
+
+      - name: Run tests
+        run: pipenv run pytest
+
+      - name: Shut down Docker containers
+        if: always()
+        run: docker-compose -f docker/docker-compose.yml down
