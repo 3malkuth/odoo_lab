@@ -29,6 +29,31 @@ jobs:
       - name: Install pipenv
         run: pip install pipenv
 
+      - name: Install wkhtmltopdf
+        run: |
+          wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.jammy_amd64.deb
+          sudo dpkg -i wkhtmltox_0.12.6.1-3.jammy_amd64.deb || sudo apt-get -f install -y
+          
+            - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            xfonts-75dpi \
+            python3-dev \
+            build-essential \
+            libjpeg-dev \
+            libpq-dev \
+            libjpeg8-dev \
+            libxml2-dev \
+            libssl-dev \
+            libffi-dev \
+            libmysqlclient-dev \
+            libxslt1-dev \
+            zlib1g-dev \
+            libsasl2-dev \
+            libldap2-dev \
+            liblcms2-dev
+
       - name: Set up Docker Compose
         run: |
           sudo apt-get update
